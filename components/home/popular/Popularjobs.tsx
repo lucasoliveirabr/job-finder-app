@@ -7,12 +7,21 @@ import { COLORS, SIZES } from "../../../constants";
 import PopularJobCard from "../../common/cards/popular/PopularJobCard";
 import useFetch from "../../../hook/useFetch";
 
-const values = [1, 2, 3, 4, 5, 6, 7, 8];
+interface FullQuery {
+  query: string;
+  page: string;
+  num_pages: string;
+  date_posted: string;
+}
 
-const Popularjobs = () => {
+const values: any = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const Popularjobs: React.FC = () => {
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetch("search", { query: "React Developer", page: "1", num_pages: "1", date_posted: "all" });
+  const full_query: FullQuery = { query: "React Developer", page: "1", num_pages: "1", date_posted: "all" };
+
+  const { data, isLoading, error } = useFetch({ endpoint: "search", full_query: full_query });
 
   return (
     <View style={styles.container}>

@@ -4,7 +4,7 @@ import axios from "axios";
 
 interface Props {
   endpoint: string;
-  query: {
+  full_query: {
     query: string;
     page: string;
     num_pages: string;
@@ -12,7 +12,7 @@ interface Props {
   }
 }
 
-const useFetch = ({ endpoint, query }: Props) => {
+const useFetch = ({ endpoint, full_query }: Props) => {
   const [data, setData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<any>(null);
@@ -24,7 +24,7 @@ const useFetch = ({ endpoint, query }: Props) => {
       'x-rapidapi-key': process.env.X_RAPIDAPI_KEY,
       'x-rapidapi-host': 'jsearch.p.rapidapi.com'
     },
-    params: { ...query }
+    params: { ...full_query }
   };
 
   const fetchData = async () => {
