@@ -41,10 +41,8 @@ const container = (selectedJob: any, item: any) => ({
 const logoContainer = (selectedJob: any, item: any) => ({
   width: 50,
   height: 50,
-  backgroundColor: selectedJob === item.job_id ? "#FFF" : COLORS.white,
+  backgroundColor: selectedJob === item.job_id ? "#FFF" : "transparent",
   borderRadius: SIZES.medium,
-  justifyContent: "center",
-  alignItems: "center",
 });
 
 const jobName = (selectedJob: any, item: any) => ({

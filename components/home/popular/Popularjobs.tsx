@@ -14,14 +14,19 @@ interface FullQuery {
   date_posted: string;
 }
 
-const values: any = [1, 2, 3, 4, 5, 6, 7, 8];
-
 const Popularjobs: React.FC = () => {
   const router = useRouter();
 
   const full_query: FullQuery = { query: "React Developer", page: "1", num_pages: "1", date_posted: "all" };
 
   const { data, isLoading, error } = useFetch({ endpoint: "search", full_query: full_query });
+
+  const [selectedJob, setSelectedJob] = useState();
+
+  const handleCardPress = (item: any) => {
+    router.push(`/job-details/${item.job_id}`);
+    setSelectedJob(item.job_id);
+  };
 
   return (
     <View style={styles.container}>
@@ -39,10 +44,12 @@ const Popularjobs: React.FC = () => {
           <Text>Something went wrong.</Text>
         ) : (
           <FlatList
-            data={values}
+            data={data}
             renderItem={({ item }) => (
               <PopularJobCard
                 item={item}
+                selectedJob={selectedJob}
+                handleCardPress={handleCardPress}
               />
             )}
             keyExtractor={item => item?.job_id}

@@ -1,17 +1,16 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
-import styles from "./popularjobcard.style";
-import { container, logoContainer, jobName, publisher } from "./popularjobcard.style";
+import styles from "./nearbyjobcard.style";
+//import { container, logoContainer, jobName, publisher } from "./popularjobcard.style";
 
 import { checkImageURL } from "../../../../utils";
 
 interface Props {
-  item: any;
-  selectedJob: any;
-  handleCardPress: any;
+  job: any;
+  handleNavigate: any;
 }
 
-const PopularJobCard = ({ item, selectedJob, handleCardPress }: Props) => {
+const NearbyJobCard = ({ job, handleNavigate }: Props) => {
   return (
     <View style={{ justifyContent: "space-between" }}>
       <TouchableOpacity
@@ -43,4 +42,4 @@ const PopularJobCard = ({ item, selectedJob, handleCardPress }: Props) => {
   )
 }
 
-export default PopularJobCard;
+export default NearbyJobCard;
