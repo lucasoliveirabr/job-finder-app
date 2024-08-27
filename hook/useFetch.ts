@@ -9,7 +9,7 @@ interface Props {
     page: string;
     num_pages: string;
     date_posted: string;
-  }
+  } | { job_id: string };
 }
 
 const useFetch = ({ endpoint, full_query }: Props) => {

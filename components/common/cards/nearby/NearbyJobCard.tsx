@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import styles from "./nearbyjobcard.style";
-//import { container, logoContainer, jobName, publisher } from "./popularjobcard.style";
 
 import { checkImageURL } from "../../../../utils";
 
@@ -14,14 +13,14 @@ const NearbyJobCard = ({ job, handleNavigate }: Props) => {
   return (
     <View style={{ justifyContent: "space-between" }}>
       <TouchableOpacity
-        style={container(selectedJob, item)}
-        onPress={() => handleCardPress(item)}
+        style={styles.container}
+        onPress={handleNavigate}
       >
-        <View style={[logoContainer(selectedJob, item), { justifyContent: "center", alignItems: "center" }]}>
+        <View style={styles.logoContainer}>
           <Image
             source={{
-              uri: checkImageURL(item.employer_logo)
-                ? item.employer_logo
+              uri: checkImageURL(job.employer_logo)
+                ? job.employer_logo
                 : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg"
             }}
             resizeMode="contain"
@@ -29,13 +28,11 @@ const NearbyJobCard = ({ job, handleNavigate }: Props) => {
           />
         </View>
 
-        <Text style={styles.companyName} numberOfLines={1}>{item.employer_name}</Text>
-
-        <View style={styles.infoContainer}>
-          <Text style={jobName(selectedJob, item)} numberOfLines={1}>
-            {item.job_title}
+        <View style={styles.textContainer}>
+          <Text style={styles.jobName} numberOfLines={1}>
+            {job.job_title}
           </Text>
-          <Text style={styles.location}>{item.job_country}</Text>
+          <Text style={styles.jobType}>{job.job_employment_type}</Text>
         </View>
       </TouchableOpacity>
     </View>

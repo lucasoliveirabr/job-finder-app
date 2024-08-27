@@ -6,7 +6,7 @@ import { btnImg } from "./screenheader.style";
 interface Props {
   iconUrl: any;
   dimension: any;
-  handlePress?: () => {};
+  handlePress?: any;
 }
 
 const ScreenHeaderBtn: React.FC<Props> = ({ iconUrl, dimension, handlePress }) => {
