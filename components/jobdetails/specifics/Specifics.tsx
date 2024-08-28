@@ -9,8 +9,8 @@ interface Props {
 
 const Specifics: React.FC<Props> = ({ title, points }) => {
   return (
-    <View>
-      <Text>Specifics</Text>
+    <View style={styles.container}>
+      <Text>{title}</Text>
     </View>
   )
 }
