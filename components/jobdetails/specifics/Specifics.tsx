@@ -4,13 +4,22 @@ import styles from "./specifics.style";
 
 interface Props {
   title: string;
-  points: any;
+  points: string[];
 }
 
 const Specifics: React.FC<Props> = ({ title, points }) => {
   return (
     <View style={styles.container}>
-      <Text>{title}</Text>
+      <Text style={styles.title}>{title}</Text>
+
+      <View style={styles.pointsContainer}>
+        {points.map((item: string, index: number) => (
+          <View style={styles.pointWrapper} key={item + index}>
+            <View style={styles.pointDot} />
+            <Text style={styles.pointText}>{item}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   )
 }

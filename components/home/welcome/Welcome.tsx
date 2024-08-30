@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image, FlatList, NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 import { useRouter } from "expo-router";
 
 import styles from "./welcome.style";
@@ -8,7 +8,13 @@ import { icons, SIZES } from "../../../constants";
 
 const jobTypes: string[] = ["Full-time", "Part-time", "Contractor"];
 
-const Welcome: React.FC = () => {
+interface Props {
+  searchTerm: string;
+  setSearchTerm: (text: string) => void;
+  handleClick: () => void | "";
+}
+
+const Welcome: React.FC<Props> = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
   const [activeJobType, setActiveJobType] = useState<string>("Full-time");
 
@@ -23,13 +29,13 @@ const Welcome: React.FC = () => {
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            value=""
-            onChange={() => { }}
+            value={searchTerm}
+            onChange={(event: NativeSyntheticEvent<TextInputChangeEventData>) => setSearchTerm(event.nativeEvent.text)}
             placeholder="What are you looking for?"
           />
         </View>
 
-        <TouchableOpacity style={styles.searchBtn} onPress={() => { }}>
+        <TouchableOpacity style={styles.searchBtn} onPress={() => handleClick}>
           <Image
             source={icons.search}
             resizeMode="contain"
