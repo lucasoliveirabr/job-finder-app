@@ -1,10 +1,9 @@
 import { View, Text, TouchableOpacity, Image, Linking } from "react-native";
 
 import styles from "./footer.style";
-import { icons } from "../../../constants";
 
 interface Props {
-  url: any;
+  url: string;
 }
 
 const Footer: React.FC<Props> = ({ url }) => {
@@ -12,7 +11,7 @@ const Footer: React.FC<Props> = ({ url }) => {
     <View style={styles.container}>
       <TouchableOpacity style={styles.likeBtn}>
         <Image
-          source={icons.heartOutline}
+          source={require("../../../assets/icons/heart-ol.png")}
           resizeMode="contain"
           style={styles.likeBtnImage}
         />

@@ -1,7 +1,6 @@
 import { View, Text, Image } from "react-native";
 
 import styles from "./company.style";
-import { icons } from "../../../constants";
 import { checkImageURL } from "../../../utils";
 
 interface Props {
@@ -33,7 +32,7 @@ const Company: React.FC<Props> = ({ companyLogo, jobTitle, companyName, location
         <Text style={styles.companyName}>{companyName} /</Text>
         <View style={styles.locationBox}>
           <Image
-            source={icons.location}
+            source={require("../../../assets/icons/location.png")}
             resizeMode="contain"
             style={styles.locationImage}
           />

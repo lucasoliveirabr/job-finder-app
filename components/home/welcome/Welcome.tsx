@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 
 import styles from "./welcome.style";
 import { tab, tabText } from "./welcome.style";
-import { icons, SIZES } from "../../../constants";
+import { SIZES } from "../../../constants";
 
 const jobTypes: string[] = ["Full-time", "Part-time", "Contractor"];
 
@@ -37,7 +37,7 @@ const Welcome: React.FC<Props> = ({ searchTerm, setSearchTerm, handleClick }) =>
 
         <TouchableOpacity style={styles.searchBtn} onPress={() => handleClick}>
           <Image
-            source={icons.search}
+            source={require("../../../assets/icons/search.png")}
             resizeMode="contain"
             style={styles.searchBtnImage}
           />

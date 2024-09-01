@@ -4,7 +4,7 @@ import styles, { btn, btnText } from "./tabs.style";
 import { SIZES } from "../../../constants";
 
 interface TabButtonProps {
-  name: any;
+  name: string;
   activeTab: any;
   onHandleSearchType: any;
 }

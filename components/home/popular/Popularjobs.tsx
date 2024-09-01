@@ -21,7 +21,7 @@ const Popularjobs: React.FC = () => {
 
   const { data, isLoading, error } = useFetch({ endpoint: "search", full_query: full_query });
 
-  const [selectedJob, setSelectedJob] = useState();
+  const [selectedJob, setSelectedJob] = useState<any>();
 
   const handleCardPress = (item: any) => {
     router.push(`/job-details/${item.job_id}`);
