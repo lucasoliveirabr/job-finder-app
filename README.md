@@ -53,6 +53,8 @@ Make sure you have the following installed on your machine:
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en)
 
+You will also need [Expo Go](https://expo.dev/go).
+
 **Cloning the Repository**
 
 ```bash
@@ -84,4 +86,4 @@ Add your actual credential. You can obtain the credential by signing up on the [
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+Open the App in [Expo Go](https://expo.dev/go) to view the project.
